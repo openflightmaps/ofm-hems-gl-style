@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "OFM HEMS",
+  "name": "Klokantech Basic",
   "metadata": {
     "mapbox:autocomposite": false,
     "mapbox:type": "template",
@@ -19,10 +19,10 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "mbtiles://{v3}"
+      "url": "https://free.tilehosting.com/data/v3.json?key={key}"
     }
   },
-  "glyphs": "{fontstack}/{range}.pbf",
+  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key={key}",
   "layers": [
     {
       "id": "background",
@@ -467,7 +467,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
+        "line-color": "rgba(224, 223, 223, 1)",
         "line-width": {
           "base": 1.55,
           "stops": [
