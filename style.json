@@ -414,6 +414,33 @@
       }
     },
     {
+      "id": "road_motorway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "motorway"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 87, 47, 1)",
+        "line-width": 8
+      }
+    },
+    {
       "id": "road_minor",
       "type": "line",
       "source": "openmaptiles",
@@ -823,7 +850,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "hsl(0, 0%, 100%)",
+        "line-color": "rgba(221, 136, 0, 255)",
         "line-width": {
           "base": 1.4,
           "stops": [
