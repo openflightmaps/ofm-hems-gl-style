@@ -19,14 +19,17 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "mbtiles://{v3}"
+      "url": "https://tiles.dev.openflightmaps.org/data/v3.json"
     }
   },
-  "glyphs": "{fontstack}/{range}.pbf",
+  "glyphs": "https://tiles.dev.openflightmaps.org/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
       "type": "background",
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "background-color": "rgba(255, 255, 255, 1)"
       }
@@ -53,8 +56,8 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgba(119, 118, 118, 1)",
-        "fill-opacity": 0.7
+        "fill-color": "rgba(223, 223, 223, 1)",
+        "fill-opacity": 0.5
       }
     },
     {
@@ -67,9 +70,12 @@
         "class",
         "grass"
       ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
-        "fill-color": "rgba(204, 204, 187, 255)",
-        "fill-opacity": 0.45
+        "fill-color": "rgba(205, 235, 176, 1)",
+        "fill-opacity": 1
       }
     },
     {
@@ -77,6 +83,9 @@
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "park",
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "fill-color": "rgba(132, 169, 63, 0.53)",
         "fill-opacity": 1
@@ -92,14 +101,17 @@
         "class",
         "wood"
       ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
-        "fill-color": "rgba(221, 238, 187, 255)",
+        "fill-color": "rgba(173, 209, 158, 1)",
         "fill-opacity": {
           "base": 1,
           "stops": [
             [
               8,
-              0.6
+              1
             ],
             [
               22,
@@ -119,8 +131,11 @@
         "$type",
         "Polygon"
       ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
-        "fill-color": "rgba(204, 238, 255, 255)",
+        "fill-color": "rgba(170, 211, 223, 1)",
         "fill-antialias": true
       }
     },
@@ -221,7 +236,9 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "park",
-      "layout": {},
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(159, 183, 118, 0.69)",
         "line-dasharray": [
@@ -240,6 +257,9 @@
         "$type",
         "LineString"
       ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "hsl(205, 56%, 73%)",
         "line-width": {
@@ -284,7 +304,8 @@
       ],
       "layout": {
         "line-cap": "butt",
-        "line-join": "miter"
+        "line-join": "miter",
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "hsl(34, 12%, 66%)",
@@ -302,8 +323,8 @@
           ]
         },
         "line-dasharray": [
-          3,
-          3
+          1,
+          1
         ]
       }
     },
@@ -316,7 +337,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgba(0, 0, 0, 1)",
+        "fill-color": "rgba(50, 50, 50, 1)",
         "fill-outline-color": {
           "stops": [
             [
@@ -362,7 +383,8 @@
         "text-font": [
           "Klokantech Noto Sans Regular",
           "Klokantech Noto Sans CJK Regular"
-        ]
+        ],
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "rgba(212, 177, 146, 1)"
@@ -373,6 +395,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 15,
       "filter": [
         "all",
         [
@@ -388,22 +411,19 @@
         ]
       ],
       "layout": {
-        "line-cap": "square",
+        "line-cap": "round",
         "line-join": "bevel",
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-dasharray": [
-          1,
-          1
-        ],
+        "line-color": "rgba(119, 119, 119, 1)",
+        "line-dasharray": [],
         "line-width": {
           "base": 1.55,
           "stops": [
             [
-              9,
-              0.25
+              14,
+              2
             ],
             [
               20,
@@ -430,14 +450,32 @@
           "in",
           "class",
           "motorway"
+        ],
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "visible",
+        "line-join": "round",
+        "line-cap": "round"
       },
       "paint": {
-        "line-color": "rgba(121, 87, 47, 1)",
-        "line-width": 8
+        "line-color": "rgba(119, 119, 119, 1)",
+        "line-width": {
+          "stops": [
+            [
+              8,
+              2
+            ],
+            [
+              16,
+              12
+            ]
+          ]
+        }
       }
     },
     {
@@ -509,20 +547,21 @@
       ],
       "layout": {
         "line-cap": "butt",
-        "line-join": "miter"
+        "line-join": "miter",
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "#efefef",
+        "line-color": "rgba(120, 121, 122, 1)",
         "line-width": {
           "base": 1.55,
           "stops": [
             [
-              4,
-              0.25
+              10,
+              2
             ],
             [
-              20,
-              30
+              16,
+              4
             ]
           ]
         },
@@ -530,6 +569,69 @@
           0.36,
           0.18
         ]
+      }
+    },
+    {
+      "id": "tunnel_motorway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "==",
+          "brunnel",
+          "tunnel"
+        ],
+        [
+          "in",
+          "class",
+          "motorway"
+        ]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(119, 119, 119, 1)",
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [
+              8,
+              6
+            ],
+            [
+              16,
+              12
+            ]
+          ]
+        },
+        "line-dasharray": {
+          "stops": [
+            [
+              8,
+              [
+                1,
+                1
+              ]
+            ],
+            [
+              16,
+              [
+                1,
+                1
+              ]
+            ]
+          ]
+        }
       }
     },
     {
@@ -560,27 +662,42 @@
       ],
       "layout": {
         "line-cap": "butt",
-        "line-join": "miter"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fff",
+        "line-color": "rgba(120, 121, 122, 1)",
         "line-width": {
           "base": 1.4,
           "stops": [
             [
-              6,
-              0.5
+              8,
+              2
             ],
             [
-              20,
-              30
+              16,
+              8
             ]
           ]
         },
-        "line-dasharray": [
-          0.28,
-          0.14
-        ]
+        "line-dasharray": {
+          "stops": [
+            [
+              8,
+              [
+                2,
+                2
+              ]
+            ],
+            [
+              16,
+              [
+                2,
+                2
+              ]
+            ]
+          ]
+        }
       }
     },
     {
@@ -717,6 +834,51 @@
       }
     },
     {
+      "id": "outline_road_trunk_primary",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "trunk",
+          "primary"
+        ],
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(120, 121, 122, 1)",
+        "line-width": {
+          "stops": [
+            [
+              8,
+              1
+            ],
+            [
+              16,
+              8
+            ]
+          ]
+        }
+      }
+    },
+    {
       "id": "inline_road_trunk_primary",
       "type": "line",
       "source": "openmaptiles",
@@ -741,8 +903,19 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(243,228, 0, 1)",
-        "line-width": 5
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "stops": [
+            [
+              10,
+              1
+            ],
+            [
+              16,
+              4
+            ]
+          ]
+        }
       }
     },
     {
@@ -765,7 +938,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(210, 037, 46, 1)",
@@ -790,14 +963,30 @@
           "class",
           "secondary",
           "tertiary"
+        ],
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": 4
+        "line-color": "rgba(120, 121, 122, 1)",
+        "line-width": {
+          "stops": [
+            [
+              10,
+              2
+            ],
+            [
+              16,
+              4
+            ]
+          ]
+        }
       }
     },
     {
@@ -816,14 +1005,30 @@
           "in",
           "class",
           "secondary"
+        ],
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(243, 228, 0, 1)",
-        "line-width": 4
+        "line-color": "rgba(120, 121, 122, 1)",
+        "line-width": {
+          "stops": [
+            [
+              10,
+              2
+            ],
+            [
+              16,
+              4
+            ]
+          ]
+        }
       }
     },
     {
@@ -850,21 +1055,65 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(221, 136, 0, 255)",
+        "line-color": "rgba(255, 255, 255, 1)",
         "line-width": {
           "base": 1.4,
           "stops": [
             [
               8,
-              1
+              2
             ],
             [
               16,
-              10
+              8
             ]
           ]
         },
         "line-offset": 0
+      }
+    },
+    {
+      "id": "road_minor-copy",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "minor",
+          "service",
+          "track"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(223, 223, 223, 1)",
+        "line-width": {
+          "base": 1.55,
+          "stops": [
+            [
+              9,
+              0.5
+            ],
+            [
+              20,
+              30
+            ]
+          ]
+        },
+        "line-translate-anchor": "map"
       }
     },
     {
@@ -889,6 +1138,52 @@
         "visibility": "visible"
       },
       "paint": {}
+    },
+    {
+      "id": "road_path-copy",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "path",
+          "track"
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "line-join": "bevel",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-dasharray": [
+          1,
+          1
+        ],
+        "line-width": {
+          "base": 1.55,
+          "stops": [
+            [
+              14,
+              2
+            ],
+            [
+              20,
+              10
+            ]
+          ]
+        }
+      }
     },
     {
       "id": "rail-out",
@@ -959,7 +1254,8 @@
       ],
       "layout": {
         "line-cap": "butt",
-        "line-join": "miter"
+        "line-join": "miter",
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#dedede",
@@ -1019,7 +1315,8 @@
       ],
       "layout": {
         "line-cap": "butt",
-        "line-join": "miter"
+        "line-join": "miter",
+        "visibility": "none"
       },
       "paint": {
         "line-color": "#dedede",
@@ -1076,7 +1373,8 @@
       ],
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#efefef",
@@ -1123,20 +1421,21 @@
       ],
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fff",
+        "line-color": "rgba(0, 0, 0, 1)",
         "line-width": {
           "base": 1.4,
           "stops": [
             [
-              6,
-              0.5
+              8,
+              2
             ],
             [
-              20,
-              30
+              16,
+              4
             ]
           ]
         }
