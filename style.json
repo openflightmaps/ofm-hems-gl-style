@@ -413,7 +413,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "bevel",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(119, 119, 119, 1)",
@@ -458,7 +458,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible",
+        "visibility": "none",
         "line-join": "round",
         "line-cap": "round"
       },
@@ -502,7 +502,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(223, 223, 223, 1)",
@@ -548,7 +548,7 @@
       "layout": {
         "line-cap": "butt",
         "line-join": "miter",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(120, 121, 122, 1)",
@@ -597,7 +597,7 @@
       "layout": {
         "line-cap": "butt",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(119, 119, 119, 1)",
@@ -663,7 +663,7 @@
       "layout": {
         "line-cap": "butt",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(120, 121, 122, 1)",
@@ -724,7 +724,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-opacity": {
@@ -768,7 +768,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
@@ -813,7 +813,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
@@ -860,7 +860,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(120, 121, 122, 1)",
@@ -900,7 +900,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
@@ -919,6 +919,51 @@
       }
     },
     {
+      "id": "outline_road_tertiary",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "tertiary"
+        ],
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
+        ]
+      ],
+      "layout": {
+        "visibility": "none",
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "rgba(120, 121, 122, 1)",
+        "line-width": {
+          "stops": [
+            [
+              8,
+              1
+            ],
+            [
+              16,
+              6
+            ]
+          ]
+        },
+        "line-blur": 0
+      }
+    },
+    {
       "id": "outline_road_secondary_tertiary",
       "type": "line",
       "source": "openmaptiles",
@@ -933,21 +978,38 @@
         [
           "in",
           "class",
-          "secondary",
-          "tertiary"
+          "secondary"
+        ],
+        [
+          "!=",
+          "brunnel",
+          "tunnel"
         ]
       ],
       "layout": {
-        "visibility": "none"
+        "visibility": "none",
+        "line-cap": "round",
+        "line-join": "round"
       },
       "paint": {
-        "line-color": "rgba(210, 037, 46, 1)",
-        "line-width": 10,
-        "line-blur": 3
+        "line-color": "rgba(120, 121, 122, 1)",
+        "line-width": {
+          "stops": [
+            [
+              8,
+              1
+            ],
+            [
+              16,
+              8
+            ]
+          ]
+        },
+        "line-blur": 0
       }
     },
     {
-      "id": "inline_road_secondary_tertiary-copy",
+      "id": "inline_road_tertiary",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -961,7 +1023,6 @@
         [
           "in",
           "class",
-          "secondary",
           "tertiary"
         ],
         [
@@ -971,15 +1032,15 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
-        "line-color": "rgba(120, 121, 122, 1)",
+        "line-color": "rgba(255, 255, 255, 1)",
         "line-width": {
           "stops": [
             [
               10,
-              2
+              1
             ],
             [
               16,
@@ -1005,23 +1066,18 @@
           "in",
           "class",
           "secondary"
-        ],
-        [
-          "!=",
-          "brunnel",
-          "tunnel"
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
-        "line-color": "rgba(120, 121, 122, 1)",
+        "line-color": "rgba(255, 255, 255, 1)",
         "line-width": {
           "stops": [
             [
               10,
-              2
+              1
             ],
             [
               16,
@@ -1052,7 +1108,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
@@ -1070,50 +1126,6 @@
           ]
         },
         "line-offset": 0
-      }
-    },
-    {
-      "id": "road_minor-copy",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "==",
-          "$type",
-          "LineString"
-        ],
-        [
-          "in",
-          "class",
-          "minor",
-          "service",
-          "track"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(223, 223, 223, 1)",
-        "line-width": {
-          "base": 1.55,
-          "stops": [
-            [
-              9,
-              0.5
-            ],
-            [
-              20,
-              30
-            ]
-          ]
-        },
-        "line-translate-anchor": "map"
       }
     },
     {
@@ -1135,7 +1147,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {}
     },
@@ -1196,7 +1208,7 @@
         "rail"
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-width": 3,
@@ -1255,7 +1267,7 @@
       "layout": {
         "line-cap": "butt",
         "line-join": "miter",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "#dedede",
@@ -1316,7 +1328,7 @@
       "layout": {
         "line-cap": "butt",
         "line-join": "miter",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#dedede",
@@ -1374,7 +1386,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "#efefef",
@@ -1422,7 +1434,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(0, 0, 0, 1)",
@@ -1454,7 +1466,7 @@
         8
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "hsl(0, 0%, 76%)",
@@ -1484,7 +1496,8 @@
       ],
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "none"
       },
       "paint": {
         "line-color": "hsla(0, 8%, 22%, 0.51)",
@@ -1528,7 +1541,7 @@
           "Klokantech Noto Sans Regular",
           "Klokantech Noto Sans CJK Regular"
         ],
-        "visibility": "visible",
+        "visibility": "none",
         "text-offset": [
           0,
           0.5
@@ -1577,11 +1590,56 @@
             ]
           ]
         },
-        "text-rotation-alignment": "map"
+        "text-rotation-alignment": "map",
+        "visibility": "none"
       },
       "paint": {
         "text-color": "#000",
         "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place_label_mountain",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 13,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Point"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name} {ele} m",
+        "text-font": [
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
+        ],
+        "text-max-width": 6,
+        "text-size": {
+          "stops": [
+            [
+              14,
+              10
+            ],
+            [
+              16,
+              14
+            ]
+          ]
+        },
+        "visibility": "none",
+        "text-anchor": "center"
+      },
+      "paint": {
+        "text-color": "hsl(0, 10%, 25%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-blur": 0,
         "text-halo-width": 2
       }
     },
@@ -1623,7 +1681,7 @@
             ]
           ]
         },
-        "visibility": "visible",
+        "visibility": "none",
         "text-anchor": "center"
       },
       "paint": {
@@ -1670,7 +1728,8 @@
               16
             ]
           ]
-        }
+        },
+        "visibility": "none"
       },
       "paint": {
         "text-color": "hsl(0, 0%, 0%)",
@@ -1716,7 +1775,8 @@
               22
             ]
           ]
-        }
+        },
+        "visibility": "none"
       },
       "paint": {
         "text-color": "hsl(0, 0%, 13%)",
