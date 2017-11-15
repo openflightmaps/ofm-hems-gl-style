@@ -31,7 +31,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "background-color": "rgba(255, 255, 255, 1)"
+        "background-color": "rgba(255, 255, 255, 0.99)"
       }
     },
     {
@@ -84,7 +84,7 @@
       "source": "openmaptiles",
       "source-layer": "park",
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-color": "rgba(132, 169, 63, 0.53)",
@@ -236,8 +236,16 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "park",
+      "filter": [
+        "all",
+        [
+          "==",
+          "admin_level",
+          2
+        ]
+      ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(159, 183, 118, 0.69)",
@@ -1783,6 +1791,26 @@
         "text-halo-color": "rgba(255,255,255,0.75)",
         "text-halo-width": 2,
         "text-halo-blur": 0
+      }
+    },
+    {
+      "id": "boundary_2",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "boundary",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "admin_level",
+          2
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(104, 103, 103, 1)",
+        "line-width": 2
       }
     }
   ],
