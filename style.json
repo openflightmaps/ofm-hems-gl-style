@@ -71,7 +71,7 @@
         "grass"
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-color": "rgba(205, 235, 176, 1)",
@@ -102,7 +102,7 @@
         "wood"
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-color": "rgba(173, 209, 158, 1)",
